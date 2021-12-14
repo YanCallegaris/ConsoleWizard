@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class ConsoleWizard : MonoBehaviour
 {
+    int max = 1000;
+    int min = 1;
+    int guess = 500;
+
     // Start is called before the first frame update
     void Start()
     {
-        int max = 1000;
-        int min = 1;
+        
 
-        Debug.Log("Welcome to number wizard\nPick a number and don't tell me what is\nThe highest number you can pick is: " 
+        Debug.Log("Welcome to number wizard\nPick a number and don't tell me what is\nThe highest number you can pick is: "
             + max + "\nThe lowest is: " + min + "\nTell me if your number is higher or lower than 500\nPush Up = Higher, Push Down = Lower, Push Enter = correct");
 
     }
@@ -19,12 +22,20 @@ public class ConsoleWizard : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
             Debug.Log("Up Arrow key was pressed.");
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+            min = guess;
+            Debug.Log(guess);
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
             Debug.Log("Down Arrow key was pressed.");
-
-        if (Input.GetKeyDown(KeyCode.Return))
+            max = guess;
+            Debug.Log(guess);
+        }
+        else if (Input.GetKeyDown(KeyCode.Return))
+        {
             Debug.Log("You hit Enter");
+        }
     }
 }
